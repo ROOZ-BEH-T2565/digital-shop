@@ -1,0 +1,18 @@
+import { ProductWithImages } from "@/types/productsType";
+import ProductItem from "./ProductItem";
+
+function ProductList({ products }: { products: ProductWithImages[] }) {
+  if (products.length === 0) {
+    return <div>محصولی یافت نشد</div>;
+  }
+
+  return (
+    <div className="grid grid-cols-2 gap-4">
+      {products.map((item) => (
+        <ProductItem key={item.id} products={item} />
+      ))}
+    </div>
+  );
+}
+
+export default ProductList;

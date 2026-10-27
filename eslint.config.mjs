@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // ← این چهار خط را اضافه کن:
+    "src/prisma/contract.d.ts",
+    "migrations/snapshots/**",
+    "**/contract.d.ts",
+    "**/contract.json",
   ]),
 ]);
 

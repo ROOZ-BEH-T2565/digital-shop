@@ -1,0 +1,49 @@
+[
+  {
+    "id": "checkConstraint.Product.Product_category_check_2f2ef40a",
+    "label": "Add check constraint \"Product_category_check_2f2ef40a\" on \"Product\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "checkConstraint",
+        "name": "Product_category_check_2f2ef40a",
+        "table": "Product"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure constraint \"Product_category_check_2f2ef40a\" does not exist",
+        "sql": "SELECT NOT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "Product_category_check_2f2ef40a",
+          "public",
+          "\"public\".\"Product\""
+        ],
+        "expectation": {
+          "expects": "absent",
+          "object": "constraint \"Product_category_check_2f2ef40a\" on \"Product\""
+        }
+      }
+    ],
+    "execute": [
+      {
+        "description": "add check constraint \"Product_category_check_2f2ef40a\"",
+        "sql": "ALTER TABLE \"public\".\"Product\" ADD CONSTRAINT \"Product_category_check_2f2ef40a\" CHECK (\"category\" IN ('Mobile', 'Laptop', 'Watch', 'Others'))"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify check constraint \"Product_category_check_2f2ef40a\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3) AND \"c\".\"contype\" = $4)) AS \"result\"",
+        "params": [
+          "Product_category_check_2f2ef40a",
+          "public",
+          "\"public\".\"Product\"",
+          "c"
+        ]
+      }
+    ]
+  }
+]
