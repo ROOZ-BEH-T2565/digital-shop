@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { io } from "next/cache";
 import ProductForm from "@/modules/products/components/ProductForm";
+import { LoadingScreen } from "@/components/LoadingScreen";
 
 async function NewProductContent() {
   await io();
@@ -9,7 +10,7 @@ async function NewProductContent() {
 
 export default function NewProductPage() {
   return (
-    <Suspense fallback={<div>در حال بارگذاری...</div>}>
+    <Suspense fallback={<LoadingScreen />}>
       <NewProductContent />
     </Suspense>
   );

@@ -9,10 +9,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ProductWithImages } from "@/types/productsType";
-import { Edit, Trash } from "lucide-react";
+import { Edit } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { deleteProduct } from "../actions";
 import { DeleteButton } from "@/components/DeleteButton";
 
 function ProductTable({ products }: { products: ProductWithImages[] }) {
