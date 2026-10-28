@@ -3,7 +3,11 @@ import ProductItem from "./ProductItem";
 
 function ProductList({ products }: { products: ProductWithImages[] }) {
   if (products.length === 0) {
-    return <div>محصولی یافت نشد</div>;
+    return (
+      <div className="flex justify-center items-center font-bold text-2xl">
+        محصولی یافت نشد
+      </div>
+    );
   }
 
   return (

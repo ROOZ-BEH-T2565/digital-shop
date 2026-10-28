@@ -10,9 +10,7 @@ import { GalleryThumbnails, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-async function ProductItem(props: { products: ProductWithImages }) {
-  const { products } = props;
-
+async function ProductItem({ products }: { products: ProductWithImages }) {
   return (
     <Card className="w-[480px] transform transition-transform duration-300 hover:scale-102">
       <CardHeader>
