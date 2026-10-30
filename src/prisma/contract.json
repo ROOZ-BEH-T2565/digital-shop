@@ -69,12 +69,8 @@
                 "cardinality": "N:1",
                 "nullable": true,
                 "on": {
-                  "localFields": [
-                    "productId"
-                  ],
-                  "targetFields": [
-                    "id"
-                  ]
+                  "localFields": ["productId"],
+                  "targetFields": ["id"]
                 },
                 "to": {
                   "model": "Product",
@@ -153,12 +149,8 @@
               "images": {
                 "cardinality": "1:N",
                 "on": {
-                  "localFields": [
-                    "id"
-                  ],
-                  "targetFields": [
-                    "productId"
-                  ]
+                  "localFields": ["id"],
+                  "targetFields": ["productId"]
                 },
                 "to": {
                   "model": "Image",
@@ -228,16 +220,12 @@
                     "name": "Image_productId_idx_5858600a"
                   },
                   "source": {
-                    "columns": [
-                      "productId"
-                    ],
+                    "columns": ["productId"],
                     "namespaceId": "public",
                     "tableName": "Image"
                   },
                   "target": {
-                    "columns": [
-                      "id"
-                    ],
+                    "columns": ["id"],
                     "namespaceId": "public",
                     "tableName": "Product"
                   }
@@ -245,18 +233,14 @@
               ],
               "indexes": [
                 {
-                  "columns": [
-                    "productId"
-                  ],
+                  "columns": ["productId"],
                   "name": "Image_productId_idx_5858600a",
                   "prefix": "Image_productId_idx",
                   "unique": false
                 }
               ],
               "primaryKey": {
-                "columns": [
-                  "id"
-                ]
+                "columns": ["id"]
               },
               "uniques": []
             },
@@ -321,9 +305,7 @@
               "foreignKeys": [],
               "indexes": [],
               "primaryKey": {
-                "columns": [
-                  "id"
-                ]
+                "columns": ["id"]
               },
               "uniques": []
             }
@@ -331,12 +313,7 @@
           "valueSet": {
             "ProductCategory": {
               "kind": "valueSet",
-              "values": [
-                "Mobile",
-                "Laptop",
-                "Watch",
-                "Others"
-              ]
+              "values": ["Mobile", "Laptop", "Watch", "Others"]
             }
           }
         },
