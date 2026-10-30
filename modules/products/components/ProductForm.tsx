@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/select";
 import { ProductWithImages, ProductCategory } from "@/types/productsType";
 import { submitProduct } from "../actions";
+import UploadImage from "./UploadImage";
 
 function ProductForm({ product }: { product: ProductWithImages | null }) {
   const isEdit = product !== null;
@@ -159,6 +160,11 @@ function ProductForm({ product }: { product: ProductWithImages | null }) {
                 : "Create Product"}
           </Button>
         </CardFooter>
+        {product?.id && (
+          <CardFooter>
+            <UploadImage productId={product?.id} />
+          </CardFooter>
+        )}
       </form>
     </Card>
   );
