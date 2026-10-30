@@ -6,7 +6,7 @@ type LoadingScreenProps = {
 };
 
 export function LoadingScreen({
-  text = "در حال بارگذاری...",
+  text = "loading...",
   fullScreen = true,
 }: LoadingScreenProps) {
   return (
